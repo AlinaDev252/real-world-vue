@@ -13,18 +13,21 @@ const routes = [
     component: EventList,
   },
   {
-    path: '/event',
-    name: 'event-show',
-    component: EventShow,
-  },
-  {
     path: '/event/create',
     name: 'event-create',
     component: EventCreate,
   },
+  {
+    // Add dynamic segment
+    path: '/event/:id',
+    name: 'event-show',
+    component: EventShow,
+    props: true,
+  },
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes,
 })
 
