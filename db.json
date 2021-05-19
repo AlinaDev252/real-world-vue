@@ -71,6 +71,48 @@
           "name": "Mary Gordon"
         }
       ]
+    },
+    {
+      "id": 7935283,
+      "category": "animal welfare",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "Test",
+      "description": "Helping animales",
+      "location": "Rome",
+      "date": "2021-05-03T12:57:00.000Z",
+      "time": "11:00",
+      "attendees": []
+    },
+    {
+      "id": 7962180,
+      "category": "education",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "test again",
+      "description": "",
+      "location": "malaga",
+      "date": "2021-05-03T13:20:00.000Z",
+      "time": "4:00",
+      "attendees": []
+    },
+    {
+      "id": 1872270,
+      "category": "community",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam Jahr"
+      },
+      "title": "Samba party",
+      "description": "Greenyard party",
+      "location": "Bucharest",
+      "date": "2021-05-26T13:35:00.000Z",
+      "time": "9:00",
+      "attendees": []
     }
   ]
 }
