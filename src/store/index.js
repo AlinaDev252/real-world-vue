@@ -22,6 +22,9 @@ export default new Vuex.Store({
     ADD_EVENT(state, event) {
       state.events.push(event)
     },
+    SET_EVENTS(state, events) {
+      state.events = events
+    },
   },
   actions: {
     createEvent({ commit }, event) {
@@ -29,19 +32,19 @@ export default new Vuex.Store({
         commit('ADD_EVENT', event)
       })
     },
-  },
-    modules: {},
-    // add a Getter to our Store
-    getters: {
-      catLength: (state) => {
-        return state.categories.length
-      },
-      doneTodos: (state) => {
-        return state.todos.filter((todo) => todo.done)
-      },
-      activeTodosCount: (state, getters) => {
-        return state.todos.filter((todo) => !todo.done).length
-      },
+    fetchEvents({ commit }, { perPage, page }) {
+      EventService.getEvents(perPage, page)
+        .then((response) => {
+          commit('SET_EVENTS', response.data)
+        })
+        .catch((error) => {
+          console.log('There was an error:', error.response)
+        })
     },
-  })
- 
+  },
+  getters: {
+    getEventById: (state) => (id) => {
+      return state.events.find((event) => event.id === id)
+    },
+  },
+})
