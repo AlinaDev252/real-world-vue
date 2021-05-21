@@ -7,6 +7,7 @@ export const state = {
   eventsTotal: 0,
   event: {},
 }
+
 export const mutations = {
   ADD_EVENT(state, event) {
     state.events.push(event)
@@ -21,13 +22,14 @@ export const mutations = {
     state.event = event
   },
 }
+
 export const actions = {
   createEvent({ commit, dispatch }, event) {
     return EventService.postEvent(event)
       .then(() => {
         commit('ADD_EVENT', event)
         const notification = {
-          type: 'Success',
+          type: 'success',
           message: 'Your event has been created!',
         }
         dispatch('notification/add', notification, { root: true })
@@ -41,7 +43,6 @@ export const actions = {
         throw error
       })
   },
-
   fetchEvents({ commit, dispatch }, { perPage, page }) {
     EventService.getEvents(perPage, page)
       .then((response) => {
@@ -58,6 +59,7 @@ export const actions = {
   },
   fetchEvent({ commit, getters, dispatch }, id) {
     var event = getters.getEventById(id)
+
     if (event) {
       commit('SET_EVENT', event)
     } else {
@@ -68,11 +70,9 @@ export const actions = {
         .catch((error) => {
           const notification = {
             type: 'error',
-            message: 'There was a problem fetching an event: ' + error.message,
+            message: 'There was a problem fetching event: ' + error.message,
           }
-          dispatch('notification/add', notification, {
-            root: true,
-          })
+          dispatch('notification/add', notification, { root: true })
         })
     }
   },

@@ -5,12 +5,25 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   props: {
     notification: {
       type: Object,
       required: true,
     },
+  },
+  data() {
+    return {
+      timeout: null,
+    }
+  },
+  mounted() {
+    this.timeout = setTimeout(() => this.remove(this.notification), 5000)
+  },
+  beforeDestroy() {
+    clearTimeout(this.timeout)
   },
   // Computed property added so that I can style the success and error notifications differently
   // This will return ‘-text-success’ or ‘-text-error’ depending upon the type that is on our notification
@@ -19,6 +32,7 @@ export default {
       return `-text-${this.notification.type}`
     },
   },
+  methods: mapActions('notification', ['remove']),
 }
 </script>
 
