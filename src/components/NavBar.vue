@@ -2,7 +2,7 @@
   <div id="nav" class="nav">
     <!-- Allows a user to click this link from anywhere in the app in order to go to the home screen -->
     <router-link to="/" class="brand">Real World Events</router-link>
-    <router-link :to="{ name: 'event-list ' }">List</router-link> 
+    <router-link :to="{ name: 'event-list' }">List</router-link>
     <router-link :to="{ name: 'event-create' }">Create </router-link>
   </div>
 </template>

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import * as user from '@/store/modules/user.js'
-// This pulls in all the constants in user.js
 import * as event from '@/store/modules/event.js'
 import * as notification from '@/store/modules/notification.js'
 

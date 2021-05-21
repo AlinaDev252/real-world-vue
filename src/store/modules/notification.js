@@ -8,9 +8,8 @@ let nextId = 1
 
 export const mutations = {
   PUSH(state, notification) {
-    state.notification.push({
+    state.notifications.push({
       ...notification,
-      // assures that the Id is unique
       id: nextId++,
     })
   },
